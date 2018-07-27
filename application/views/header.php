@@ -3,13 +3,20 @@
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Contatos</title>
+        <title>Agenda telefônica</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="http://localhost/codeigniter/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <!-- Bootstrap plugin -->
+        <link href="http://localhost/codeigniter/assets/css/plugins/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <!-- Datatables -->
+        <link href="http://localhost/codeigniter/assets/css/plugins/datatables.min.css" rel="stylesheet" type="text/css" />
+        <link href="http://localhost/codeigniter/assets/css/plugins/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+        <!-- Fontawesome all plugin -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+        <!-- My custom style -->
         <link href="http://localhost/codeigniter/assets/css/styles.css" rel="stylesheet" type="text/css" />
     </head>
     <body>
-
+        <!-- Navbar -->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark"">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -26,4 +33,5 @@
             </div>
         </nav>
 
+        <!-- Content page -->
         <div class="container pd-content">

@@ -1,3 +1,49 @@
+/**
+***************************************************************************
+ESTILO GERAL
+@author Thaís Oliveira
+@since 07/2018
+***************************************************************************
+**/
 .pd-content{
     padding: 30px 0;
+}
+
+.title{
+    padding: 30px 0;
+}
+
+.title h4{
+    display: inline-block;
+}
+
+.title button{
+    float: right;
+}
+
+/**
+***************************************************************************
+ESTILO VIEWS LISTA
+@author Thaís Oliveira
+@since 07/2018
+***************************************************************************
+**/
+table tr th,
+table tr td{
+    text-align: center;
+}
+
+/**
+***************************************************************************
+ESTILO VIEWS FORM
+@author Thaís Oliveira
+@since 07/2018
+***************************************************************************
+**/
+.btns-footer-form{
+    padding: 10px 0;
+}
+
+.btns-footer-form .btn-cancel-form{
+    float: right;
 }
