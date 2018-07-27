@@ -6,7 +6,9 @@
         }
 
         public function index(){
-            return $this->load->view('home');
+            $this->load->view('header');
+            $this->load->view('lista');
+            $this->load->view('footer');
         }
 
     }
