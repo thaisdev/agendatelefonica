@@ -25,9 +25,9 @@
         <?php echo form_error('nome'); ?>
     </div>
     <div class="form-group">
-        <label for="numero">Número</label>
-        <input class="form-control" type="number" name="numero" id="numero">
-        <?php echo form_error('numero'); ?>
+        <label for="telefone">Telefone</label>
+        <input class="form-control" type="text" name="telefone" id="telefone">
+        <?php echo form_error('telefone'); ?>
     </div>
     <div class="btns-footer-form">
         <button class="btn btn-success" type="submit">

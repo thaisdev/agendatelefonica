@@ -61,8 +61,8 @@
                     'rules' => "required"
                 ),
                 array(
-                    'field' => "numero",
-                    'label' => "número",
+                    'field' => "telefone",
+                    'label' => "telefone",
                     'rules' => "required"
                 ),
             );

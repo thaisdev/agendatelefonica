@@ -18,5 +18,12 @@ $(document).ready( function () {
         }
     });
 
+    /**
+     * Generate mask for inputs
+     * @author Thaís Oliveira
+     * @since 07/2018
+     */
+    $('#telefone').mask('(00) 00000-0000');
+
 
 } );
