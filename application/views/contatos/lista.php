@@ -1,7 +1,7 @@
 <!-- Lista de contatos -->
 <div class="title">
     <h4>Lista de contatos</h4>
-    <button type="button" class="btn btn-success" onclick="document.location.href = 'http://localhost/codeigniter/contatos/adicionar';">
+    <button type="button" class="btn btn-success" onclick="document.location.href = '<?php echo site_url("contatos/adicionar"); ?>';">
         <i class="fas fa-plus-circle"></i>
         Novo Contato
     </button>

@@ -26,10 +26,12 @@
          * @see index | adicionar | editar
          */
         private function __loadView($view){
+            // carrega o helper da url
+            $this->load->helper('url');
             // adiciona o html do header
             $this->load->view('templates/header');
             // adiciona a página de conteúdo
-            $this->load->view($view);
+            $this->load->view('contatos/'.$view);
             // adiona o html do footer
             $this->load->view('templates/footer');
         }
@@ -42,7 +44,7 @@
          */
         public function index(){
             // carrega a view de listagem de contatos
-            $this->__loadView('contato-lista');
+            $this->__loadView('lista');
         }
         /**
          * __setValidation
@@ -83,7 +85,7 @@
             // carrega o helper de formulario para a view
             $this->load->helper('form');
             // carrega a view de formulário de contato
-            $this->__loadView('contato-form');
+            $this->__loadView('form');
         }
 
         /**
@@ -94,7 +96,7 @@
          */
         public function editar($id){
             // carrega a view de formulário de contato
-            $this->__loadView('contato-form/'.$id);
+            $this->__loadView('form/'.$id);
         }
 
         /**
@@ -106,7 +108,7 @@
         public function salvar(){
             $this->__setValidation();
             var_dump($this->form_validation->run());
-            $this->__loadView('contato-form');
+            $this->__loadView('form');
         }
 
     }

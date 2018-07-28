@@ -6,14 +6,14 @@
         <title>Agenda telefônica</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Bootstrap plugin -->
-        <link href="http://localhost/codeigniter/assets/css/plugins/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="<?php echo base_url(); ?>assets/css/plugins/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <!-- Datatables -->
-        <link href="http://localhost/codeigniter/assets/css/plugins/datatables.min.css" rel="stylesheet" type="text/css" />
-        <link href="http://localhost/codeigniter/assets/css/plugins/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+        <link href="<?php echo base_url(); ?>assets/css/plugins/datatables.min.css" rel="stylesheet" type="text/css" />
+        <link href="<?php echo base_url(); ?>assets/css/plugins/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
         <!-- Fontawesome all plugin -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
         <!-- My custom style -->
-        <link href="http://localhost/codeigniter/assets/css/styles.css" rel="stylesheet" type="text/css" />
+        <link href="<?php echo base_url(); ?>assets/css/styles.css" rel="stylesheet" type="text/css" />
     </head>
     <body>
         <!-- Navbar -->

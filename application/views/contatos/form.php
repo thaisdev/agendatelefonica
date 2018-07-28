@@ -2,7 +2,7 @@
 <!-- Formulário para adicionar/editar contato -->
 <div class="title">
     <h4>Novo Contato</h4>
-    <button type="button" class="btn btn-outline-info" onclick="document.location.href = 'http://localhost/codeigniter/contatos/index';">
+    <button type="button" class="btn btn-outline-info" onclick="document.location.href = '<?php echo site_url("contatos"); ?>';">
         <i class="fas fa-arrow-left"></i>
         Voltar
     </button>
@@ -14,7 +14,7 @@
     </div>
 <?php endif; ?>
 
-<?php echo form_open('http://localhost/codeigniter/contatos/salvar') ?>
+<?php echo form_open(site_url('contatos/salvar')) ?>
     <div class="form-group">
         <label for="id">Id</label>
         <input class="form-control" type="number" readonly name="id" id="id">
@@ -34,7 +34,7 @@
             <i class="far fa-save"></i>
             Salvar
         </button>
-        <button class="btn btn-outline-danger btn-cancel-form" type="button" onclick="document.location.href = 'http://localhost/codeigniter/contatos/index';">
+        <button class="btn btn-outline-danger btn-cancel-form" type="button" onclick="document.location.href = '<?php echo site_url("contatos"); ?>';">
             <i class="fas fa-ban"></i>
             Cancelar
         </button>
