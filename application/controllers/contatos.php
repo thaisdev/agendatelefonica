@@ -5,7 +5,7 @@
      * @author Thaís Oliveira
      * @since 07/2018
      */
-    class Contato extends CI_Controller{
+    class Contatos extends CI_Controller{
 
         /**
          * __construct
