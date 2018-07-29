@@ -40,7 +40,7 @@ function addOtherPhone(){
             '<div class="input-group-prepend">'+
                 '<label class="input-group-text" for="inputGroupSelect01">Tipo</label>'+
             '</div>'+
-            '<select class="custom-select" name="telefones['+cont+'][tipo]" onchange="setMaskPhone(this, '+cont+')">'+
+            '<select class="custom-select" name="telefones['+cont+'][tipo]" onchange="changeMask(this, '+cont+')">'+
                 '<option value="C">Celular</option>'+
                 '<option value="R">Residencial</option>'+
             '</select>'+
