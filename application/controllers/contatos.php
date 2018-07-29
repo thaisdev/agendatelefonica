@@ -112,6 +112,15 @@
         public function salvar(){
             $this->__setValidation();
             var_dump($this->form_validation->run());
+            if($this->form_validation->run()){
+                $dados = array(
+                    'desc_nome' => $this->input->post("nome"),
+                    'hash_avatar' => "teste"
+                );
+                $this->load->model('Contatos_model');
+                $retorno = $this->Contatos_model->save($dados);
+                var_dump($retorno);
+            }
             $this->__loadView('form');
         }
 
