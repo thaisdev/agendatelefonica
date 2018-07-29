@@ -114,6 +114,7 @@
             var_dump($this->form_validation->run());
             if($this->form_validation->run()){
                 $dados = array(
+                    'contato_id' => 0,
                     'desc_nome' => $this->input->post("nome"),
                     'hash_avatar' => "teste"
                 );

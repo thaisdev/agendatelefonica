@@ -46,6 +46,10 @@
          * @since 07/2018
          */
         public function save($dados){
+            $dados["contato_id"] = 2;
+            if ($dados["contato_id"]){
+                return $this->db->replace($this->__table, $dados);
+            }
             return $this->db->insert($this->__table, $dados);
         }
     
