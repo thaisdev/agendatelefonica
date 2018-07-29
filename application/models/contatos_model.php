@@ -52,6 +52,16 @@
             }
             return $this->db->insert($this->__table, $dados);
         }
+
+        /**
+         * delete
+         * Apaga um registro do banco
+         * @author Thaís Oliveira
+         * @since 07/2018
+         */
+        public function delete($where){
+            return $this->db->delete($this->__table, $where);
+        }
     
     }
     

@@ -125,5 +125,19 @@
             $this->__loadView('form');
         }
 
+        /**
+         * excluir
+         * Exclui um registro pelo id
+         * @author Thaís
+         * @since 07/2018
+         */
+        public function excluir($id){
+            // monta o where
+            $where = array('contato_id' => $id);
+            $this->load->model('Contatos_model');
+            $retorno = $this->Contatos_model->delete($where);
+            var_dump($retorno);
+        }
+
     }
 ?>
