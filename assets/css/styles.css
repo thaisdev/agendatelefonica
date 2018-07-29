@@ -6,7 +6,7 @@ ESTILO GERAL
 ***************************************************************************
 **/
 .pd-content{
-    padding: 30px 0;
+    padding: 30px;
 }
 .title{
     padding: 30px 0;
@@ -45,4 +45,11 @@ ESTILO VIEWS FORM
 }
 .error small{
     color: #dc3545;
+}
+.btns-add i{
+    padding-right: 5px;
+}
+.btn-rm-phone button{
+    float: right;
+    border: none;
 }

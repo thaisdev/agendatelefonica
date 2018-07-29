@@ -12,19 +12,7 @@ $(document).ready( function () {
             { "orderable": false, "targets": 0 },
             { "orderable": false, "targets": 4 }
         ],
-        "order": [[ 2, "asc" ]],
-        "language": {
-            "url": "http://localhost/codeigniter/assets/js/language/Portuguese-Brasil.lang"
-        }
+        "order": [[ 2, "asc" ]]
     });
-
-    /**
-     * Generate mask for inputs
-     * @author Thaís Oliveira
-     * @since 07/2018
-     */
-    $('#telefone').mask('(00) 00000-0000');
-
-
 
 } );

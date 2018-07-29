@@ -27,22 +27,28 @@
     <div class="card">
         <div class="card-body">
             <h5 class="card-title">Telefones</h5>
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                    <label class="input-group-text" for="inputGroupSelect01">Tipo</label>
+            <div id="phoneGroup_0" class="phone-group">
+                <div class="btn-rm-phone">
+                    <button type="button" class="btn btn-sm btn-outline-danger btns-rm" onclick="removePhone(0)">
+                        <i class="fas fa-times"></i>
+                    </button>
                 </div>
-                <select class="custom-select" id="tipo" name="telefones[1][tipo]">
-                    <option value="R">Residencial</option>
-                    <option value="C">Celular</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="telefone">Número</label>
-                <input class="form-control" type="text" name="telefones[1][numero]" id="telefone">
-                <?php echo form_error('telefone'); ?>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text" for="inputGroupSelect01">Tipo</label>
+                    </div>
+                    <select class="custom-select" name="telefones[0][tipo]" onchange="changeMask(this, 0)">
+                        <option value="C">Celular</option>
+                        <option value="R">Residencial</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="telefone">Número</label>
+                    <input class="form-control input-phone" type="text" name="telefones[0][numero]" id="inputPhone_0">
+                </div>
             </div>
             <div id="others"></div>
-            <button type="button" class="btn btn-sm btn-info" onclick="addOtherPhone()">
+            <button type="button" class="btn btn-sm btn-info btns-add" onclick="addOtherPhone()">
                 <i class="fas fa-plus"></i>Adicionar outro
             </button>
         </div>
@@ -60,34 +66,6 @@
 </form>
 
 <script>
-    // inicializa contador de campos de telefone
-    var cont = 1;
+    
 
-    /**
-     * addOtherPhone
-     * Adiciona mais um campo de tipo e número de telefone
-     * @author Thaís Oliveira
-     * @since 07/2018
-     */
-    function addOtherPhone(){
-        // incrementa o contador de campos
-        cont++;
-        // html que contém o select com os tipos e o input para o número
-        var html = '<div class="input-group mb-3">'+
-            '<div class="input-group-prepend">'+
-                '<label class="input-group-text" for="inputGroupSelect01">Tipo</label>'+
-            '</div>'+
-            '<select class="custom-select" id="tipo" name="telefones['+(cont)+'][tipo]">'+
-                '<option value="R">Residencial</option>'+
-                '<option value="C">Celular</option>'+
-            '</select>'+
-        '</div>'+
-        '<div class="form-group">'+
-            '<label for="telefone">Número</label>'+
-            '<input class="form-control" type="text" name="telefones['+(cont)+'][numero]" id="telefone">'+
-            '<?php echo form_error("telefone"); ?>'+
-        '</div>';
-        // concatena o html na div
-        $("#others").append(html);
-    }
 </script>
