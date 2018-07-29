@@ -63,12 +63,7 @@
                     'field' => "nome",
                     'label' => "nome",
                     'rules' => "required"
-                ),
-                array(
-                    'field' => "telefone",
-                    'label' => "telefone",
-                    'rules' => "required"
-                ),
+                )
             );
             // carrega o helper de validação do formulario e adiciona as regras
             $this->load->library('form_validation');
@@ -111,7 +106,6 @@
          */
         public function salvar(){
             $this->__setValidation();
-            var_dump($this->form_validation->run());
             if($this->form_validation->run()){
                 $dados = array(
                     'contato_id' => 0,
