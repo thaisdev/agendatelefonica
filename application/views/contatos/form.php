@@ -24,10 +24,27 @@
         <input class="form-control" type="text" name="nome" id="nome">
         <?php echo form_error('nome'); ?>
     </div>
-    <div class="form-group">
-        <label for="telefone">Telefone</label>
-        <input class="form-control" type="text" name="telefone" id="telefone">
-        <?php echo form_error('telefone'); ?>
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Telefones</h5>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="inputGroupSelect01">Tipo</label>
+                </div>
+                <select class="custom-select" id="tipo" name="tipo">
+                    <option value="R">Residencial</option>
+                    <option value="C">Celular</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="telefone">Telefone</label>
+                <input class="form-control" type="text" name="telefone" id="telefone">
+                <?php echo form_error('telefone'); ?>
+            </div>
+            <button type="button" class="btn btn-sm btn-info">
+                <i class="fas fa-plus"></i>Adicionar outro
+            </button>
+        </div>
     </div>
     <div class="btns-footer-form">
         <button class="btn btn-success" type="submit">
