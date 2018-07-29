@@ -15,6 +15,7 @@
          */
         public function __construct(){
             parent::__construct();
+            //$this->load->model("Contatos_model");
         }
 
         /**
@@ -43,6 +44,9 @@
          * @since 07/2018
          */
         public function index(){
+            $this->load->model('Contatos_model');
+            $retorno = $this->Contatos_model->get();
+            var_dump($retorno);
             // carrega a view de listagem de contatos
             $this->__loadView('lista');
         }
