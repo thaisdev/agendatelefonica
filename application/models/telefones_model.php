@@ -47,7 +47,6 @@
          * @since 07/2018
          */
         public function save($dados){
-            $dados["telefone_id"] = 2;
             if ($dados["telefone_id"]){
                 return $this->db->replace($this->__table, $dados);
             }

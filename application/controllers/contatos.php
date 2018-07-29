@@ -27,6 +27,8 @@
          * @see index | adicionar | editar
          */
         private function __loadView($view){
+            // inicializa variavel com os parametros do footer
+            $footerParams = array('view' => $view);
             // carrega o helper da url
             $this->load->helper('url');
             // adiciona o html do header
@@ -34,7 +36,7 @@
             // adiciona a página de conteúdo
             $this->load->view('contatos/'.$view);
             // adiona o html do footer
-            $this->load->view('templates/footer');
+            $this->load->view('templates/footer', $footerParams);
         }
 
         /**
@@ -105,16 +107,40 @@
          * @since 07/2018
          */
         public function salvar(){
+            // adiciona a validacao
             $this->__setValidation();
+            // valida o formulario
             if($this->form_validation->run()){
-                $dados = array(
-                    'contato_id' => 0,
-                    'desc_nome' => $this->input->post("nome"),
-                    'hash_avatar' => "teste"
-                );
-                $this->load->model('Contatos_model');
-                $retorno = $this->Contatos_model->save($dados);
-                var_dump($retorno);
+                // verifica se foi informado pelo menos um telefone telefone
+                $telefones = $this->input->post("telefones");
+                if($telefones[0]["tipo"] && $telefones[0]["numero"]){
+                    // monta os dados para salvar o contato
+                    $dados = array(
+                        'contato_id' => 0,
+                        'desc_nome' => $this->input->post("nome")
+                    );
+                    // carrega o model de contatos
+                    $this->load->model('Contatos_model');
+                    // salva os dados do contato
+                    $contato_id = $this->Contatos_model->save($dados);
+                    // se obteve sucesso
+                    if($contato_id){
+                        // carrega o model de telefones
+                        $this->load->model('Telefones_model');
+                        // percorre a lista de telefones para salvar
+                        foreach ($telefones as $value) {
+                            // monta os dados
+                            $telefone = array(
+                                'telefone_id' => 0,
+                                'contato_id' => $contato_id,
+                                'flg_tipo' => $value["tipo"],
+                                'desc_telefone' => $value["numero"]
+                            );
+                            // salva o telefone
+                            $this->Telefones_model->save($telefone);
+                        }
+                    }
+                }
             }
             $this->__loadView('form');
         }
