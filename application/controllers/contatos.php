@@ -15,9 +15,8 @@
          */
         public function __construct(){
             parent::__construct();
-            // carrega od models utilizados
+            // carrega os models utilizados
             $this->load->model("Contatos_model");
-            $this->load->model("Telefones_model");
         }
 
         /**
@@ -165,6 +164,7 @@
          * @since 07/2018
          */
         private function __getAll(){
+            // busca os contatos
             return $this->Contatos_model->get();
         }
 

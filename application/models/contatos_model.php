@@ -35,13 +35,37 @@
          * @since 07/2018
          */
         public function get($where = array()){
+            // monta o select com inner join
+            $this->db->select('*');    
+            $this->db->from($this->__table);
+            $this->db->join('telefones', 'telefones.contato_id = contatos.contato_id');
             // faz a busca com where se necessário
             if($where){
                 $query = $this->db->get_where($this->__table, $where);
             } else {
-                $query = $this->db->get($this->__table);
+                $query = $this->db->get();
             }
-            return $query->result_array();
+            // agrupa o resultado e retorna
+            return $this->__groupResults($query->result_array());
+        }
+
+        /**
+         * __groupResults
+         * Agrupa os resultados pelo id do contato
+         * @author Thaís Oliveira
+         * @since 07/2018
+         */
+        private function __groupResults($rows){
+            // inicializa o array de retorno
+            $dados = array();
+            // itera o array de resultados
+            foreach($rows as $row){
+                // adiciona os dados do registro no array de retorno, colocando o contato_id como chave
+                $dados[$row["contato_id"]]["nome"] = $row["desc_nome"];
+                $dados[$row["contato_id"]]["telefones"][$row["telefone_id"]]["numero"] = $row["desc_telefone"];
+                $dados[$row["contato_id"]]["telefones"][$row["telefone_id"]]["tipo"] = $row["flg_tipo"];
+            }
+            return $dados;
         }
         
         /**
@@ -51,7 +75,6 @@
          * @since 07/2018
          */
         public function save($dados){
-            //$dados["contato_id"] = 2;
             if ($dados["contato_id"]){
                 return $this->db->replace($this->__table, $dados);
             }

@@ -35,8 +35,13 @@
          * @author Thaís Oliveira
          * @since 07/2018
          */
-        public function get(){
-            $query = $this->db->get($this->__table);
+        public function get($where = array()){
+            // faz a busca com where se necessário
+            if($where){
+                $query = $this->db->get_where($this->__table, $where);
+            } else {
+                $query = $this->db->get($this->__table);
+            }
             return $query->result_array();
         }
         
