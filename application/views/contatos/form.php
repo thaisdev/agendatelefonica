@@ -8,9 +8,15 @@
     </button>
 </div>
 
-<?php if( validation_errors() ) : ?>
+<?php if( validation_errors()  ) : ?>
     <div class="alert alert-danger" role="alert">
         Por favor, corrija os campos:
+    </div>
+<?php endif; ?>
+
+<?php if( isset($response) ) : ?>
+    <div class="alert <?php echo ($response ? 'alert-success' : 'alert-danger'); ?>" role="alert">
+        <?php echo $msg ?>
     </div>
 <?php endif; ?>
 
@@ -37,14 +43,14 @@
                     <div class="input-group-prepend">
                         <label class="input-group-text" for="inputGroupSelect01">Tipo</label>
                     </div>
-                    <select class="custom-select" name="telefones[0][tipo]" onchange="changeMask(this, 0)">
+                    <select class="custom-select" name="telefones[0][tipo]" onchange="changeMask(this, 0)" id="selectType_0">
                         <option value="C">Celular</option>
                         <option value="R">Residencial</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label for="telefone">Número</label>
-                    <input class="form-control input-phone" type="text" name="telefones[0][numero]" id="inputPhone_0">
+                    <input class="form-control input-phone" type="text" name="telefones[0][numero]" id="inputPhone_0" onchange="checkValPhone()">
                 </div>
             </div>
             <div id="others"></div>
@@ -54,7 +60,7 @@
         </div>
     </div>
     <div class="btns-footer-form">
-        <button class="btn btn-success" type="submit">
+        <button class="btn btn-success" id="btnSave" type="submit" disabled>
             <i class="far fa-save"></i>
             Salvar
         </button>

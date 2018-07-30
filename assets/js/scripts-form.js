@@ -10,6 +10,8 @@ var masks = {
 setMaskPhone($('.input-phone'), masks['C']);
 // esconde ou exibe os botoes de remover
 toggleButtonRemove();
+// verifica se possui algum número de telefone preenchido para habilitar o botão salvar
+checkValPhone();
 
 /**
  * setMaskPhone
@@ -40,14 +42,14 @@ function addOtherPhone(){
             '<div class="input-group-prepend">'+
                 '<label class="input-group-text" for="inputGroupSelect01">Tipo</label>'+
             '</div>'+
-            '<select class="custom-select" name="telefones['+cont+'][tipo]" onchange="changeMask(this, '+cont+')">'+
+            '<select class="custom-select" name="telefones['+cont+'][tipo]" onchange="changeMask(this, '+cont+')" id="selectType_'+cont+'">'+
                 '<option value="C">Celular</option>'+
                 '<option value="R">Residencial</option>'+
             '</select>'+
         '</div>'+
         '<div class="form-group">'+
             '<label for="telefone">Número</label>'+
-            '<input class="form-control input-phone" type="text" name="telefones['+cont+'][numero]" id="inputPhone_'+cont+'">'+
+            '<input class="form-control input-phone" type="text" name="telefones['+cont+'][numero]" id="inputPhone_'+cont+'" onchange="checkValPhone()">'+
         '</div></div>';
     // concatena o html na div
     $("#others").append(html);
@@ -99,5 +101,40 @@ function toggleButtonRemove(){
     } else {
         // do contrário exibe todos
         $(".btns-rm").show();
+    }
+}
+
+/**
+ * checkValPhone
+ * Verifica se há algum número de telefone preenchido e habilita o botão salvar
+ * @author Thaís Oliveira
+ * @since 07/2018
+ */
+function checkValPhone(){
+    // inicializa a variável utilizada para checar se tem um numero válido
+    var isPhoneValid = false;
+    // percorre todos os campos existentes
+    $('.input-phone').each(function(index, item){
+        // pega o id do campo
+        var id = $(item).attr('id');
+        // captura o contador
+        var cont = id.replace("inputPhone_", "");
+        // captura o tipo de telefone
+        var tipo = $("#selectType_"+cont).val();
+        // verifica se o número está completo pelo tipo de telefone
+        if( (tipo == 'C' && item.value.length == 15) || 
+            (tipo == 'R' && item.value.length == 14) ){
+            $("#btnSave").attr("disabled", false);
+            // atualiza o valor da variável aux
+            isPhoneValid = true;
+            // para o loop
+            return true;
+        }
+    });
+    // se passou pela iteração sem nenhum numero valido...
+    if (!isPhoneValid){
+        // desabilita novamente
+        $("#btnSave").attr("disabled", "disabled");
+        return false;
     }
 }

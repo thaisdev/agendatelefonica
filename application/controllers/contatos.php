@@ -15,7 +15,9 @@
          */
         public function __construct(){
             parent::__construct();
-            //$this->load->model("Contatos_model");
+            // carrega od models utilizados
+            $this->load->model("Contatos_model");
+            $this->load->model("Telefones_model");
         }
 
         /**
@@ -26,7 +28,7 @@
          * @param String view
          * @see index | adicionar | editar
          */
-        private function __loadView($view){
+        private function __loadView($view, $dados = array()){
             // inicializa variavel com os parametros do footer
             $footerParams = array('view' => $view);
             // carrega o helper da url
@@ -34,7 +36,7 @@
             // adiciona o html do header
             $this->load->view('templates/header');
             // adiciona a página de conteúdo
-            $this->load->view('contatos/'.$view);
+            $this->load->view('contatos/'.$view, $dados);
             // adiona o html do footer
             $this->load->view('templates/footer', $footerParams);
         }
@@ -46,9 +48,7 @@
          * @since 07/2018
          */
         public function index(){
-            $this->load->model('Contatos_model');
-            $retorno = $this->Contatos_model->get();
-            var_dump($retorno);
+            //$retorno = $this->Contatos_model->get();
             // carrega a view de listagem de contatos
             $this->__loadView('lista');
         }
@@ -96,8 +96,12 @@
          * @since 07/2018
          */
         public function editar($id){
+            // busca o contato pelo id
+            $this->Contatos_model->get(array('contato_id' => $id));
+            // carrega o helper de formulario para a view
+            $this->load->helper('form');
             // carrega a view de formulário de contato
-            $this->__loadView('form/'.$id);
+            $this->__loadView('form');
         }
 
         /**
@@ -109,11 +113,13 @@
         public function salvar(){
             // adiciona a validacao
             $this->__setValidation();
+            // inicializa os parametros enviados para a view
+            $params = array();
             // valida o formulario
             if($this->form_validation->run()){
-                // verifica se foi informado pelo menos um telefone telefone
+                // verifica se foi informado pelo menos um telefone
                 $telefones = $this->input->post("telefones");
-                if($telefones[0]["tipo"] && $telefones[0]["numero"]){
+                if(end($telefones)["tipo"] && end($telefones)["numero"]){
                     // monta os dados para salvar o contato
                     $dados = array(
                         'contato_id' => 0,
@@ -139,10 +145,17 @@
                             // salva o telefone
                             $this->Telefones_model->save($telefone);
                         }
+                        // monta os parametros para a view
+                        $params['response'] = true; 
+                        $params['msg'] = "Dados salvos com successo!";
                     }
+                } else {
+                    // informa o erro nos parametros da view
+                    $params['response'] = false;
+                    $params['msg'] = "Informe pelo menos um telefone";
                 }
             }
-            $this->__loadView('form');
+            $this->__loadView('form', $params);
         }
 
         /**
