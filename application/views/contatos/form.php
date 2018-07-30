@@ -50,7 +50,7 @@
                 </div>
                 <div class="form-group">
                     <label for="telefone">Número</label>
-                    <input class="form-control input-phone" type="text" name="telefones[0][numero]" id="inputPhone_0" onchange="checkValPhone()">
+                    <input class="form-control input-phone" type="text" name="telefones[0][numero]" id="inputPhone_0" onkeyup="checkValPhone()">
                 </div>
             </div>
             <div id="others"></div>

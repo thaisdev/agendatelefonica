@@ -49,7 +49,7 @@ function addOtherPhone(){
         '</div>'+
         '<div class="form-group">'+
             '<label for="telefone">Número</label>'+
-            '<input class="form-control input-phone" type="text" name="telefones['+cont+'][numero]" id="inputPhone_'+cont+'" onchange="checkValPhone()">'+
+            '<input class="form-control input-phone" type="text" name="telefones['+cont+'][numero]" id="inputPhone_'+cont+'" onkeyup="checkValPhone()">'+
         '</div></div>';
     // concatena o html na div
     $("#others").append(html);
