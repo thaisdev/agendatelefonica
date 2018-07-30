@@ -23,11 +23,11 @@
 <?php echo form_open(site_url('contatos/salvar')) ?>
     <div class="form-group">
         <label for="id">Id</label>
-        <input class="form-control" type="number" readonly name="id" id="id">
+        <input class="form-control" type="number" readonly name="id" id="id" value="<?php echo (isset($contato) ? $contato['contato_id'] : "");?>">
     </div>
     <div class="form-group">
         <label for="nome">Nome</label>
-        <input class="form-control" type="text" name="nome" id="nome">
+        <input class="form-control" type="text" name="nome" id="nome" value="<?php echo (isset($contato) ? $contato['desc_nome'] : "");?>">
         <?php echo form_error('nome'); ?>
     </div>
     <div class="card">

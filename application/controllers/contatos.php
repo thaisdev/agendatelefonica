@@ -97,11 +97,11 @@
          */
         public function editar($id){
             // busca o contato pelo id
-            $this->Contatos_model->get(array('contato_id' => $id));
+            $contatos = $this->Contatos_model->get(array('contato_id' => $id));
             // carrega o helper de formulario para a view
             $this->load->helper('form');
             // carrega a view de formulário de contato
-            $this->__loadView('form');
+            $this->__loadView('form', array('contato' => $contatos[0]));
         }
 
         /**
