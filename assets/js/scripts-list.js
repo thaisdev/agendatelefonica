@@ -12,7 +12,7 @@ $(document).ready( function () {
             { "orderable": false, "targets": 0 },
             { "orderable": false, "targets": 4 }
         ],
-        "order": [[ 2, "asc" ]]
+        "order": [[ 1, "asc" ]]
     });
 
 } );

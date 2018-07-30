@@ -7,6 +7,12 @@
     </button>
 </div>
 
+<?php if( isset($response) ) : ?>
+    <div class="alert <?php echo ($response ? 'alert-success' : 'alert-danger'); ?>" role="alert">
+        <?php echo $msg ?>
+    </div>
+<?php endif; ?>
+
 <table class="table table-bordered table-striped" id="tableList">
     <thead>
         <tr>
@@ -21,327 +27,25 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <!-- Checkbox para selecionar o contato -->
-            <td>
-                <input type="checkbox" />
-            </td>
-            <th scope="row">1</th>
-            <td>Ana</td>
-            <td>15997553749</td>
-            <td>
-                <button type="button" class="btn btn-sm btn-info">
-                    <i class="far fa-edit"></i>
-                </button>
-                <button type="button" class="btn btn-sm btn-danger">
-                    <i class="far fa-trash-alt"></i>
-                </button>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <input type="checkbox" />
-            </td>
-            <th scope="row">2</th>
-            <td>Maria</td>
-            <td>15997520124</td>
-            <td>
-                <button type="button" class="btn btn-sm btn-info">
-                    <i class="far fa-edit"></i>
-                </button>
-                <button type="button" class="btn btn-sm btn-danger">
-                    <i class="far fa-trash-alt"></i>
-                </button>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <input type="checkbox" />
-            </td>
-            <th scope="row">3</th>
-            <td>João</td>
-            <td>15996166336</td>
-            <td>
-                <button type="button" class="btn btn-sm btn-info">
-                    <i class="far fa-edit"></i>
-                </button>
-                <button type="button" class="btn btn-sm btn-danger">
-                    <i class="far fa-trash-alt"></i>
-                </button>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <input type="checkbox" />
-            </td>
-            <th scope="row">4</th>
-            <td>Pedro</td>
-            <td>15997121590</td>
-            <td>
-                <button type="button" class="btn btn-sm btn-info">
-                    <i class="far fa-edit"></i>
-                </button>
-                <button type="button" class="btn btn-sm btn-danger">
-                    <i class="far fa-trash-alt"></i>
-                </button>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <input type="checkbox" />
-            </td>
-            <th scope="row">5</th>
-            <td>Ana</td>
-            <td>15997553749</td>
-            <td>
-                <button type="button" class="btn btn-sm btn-info">
-                    <i class="far fa-edit"></i>
-                </button>
-                <button type="button" class="btn btn-sm btn-danger">
-                    <i class="far fa-trash-alt"></i>
-                </button>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <input type="checkbox" />
-            </td>
-            <th scope="row">6</th>
-            <td>Maria</td>
-            <td>15997520124</td>
-            <td>
-                <button type="button" class="btn btn-sm btn-info">
-                    <i class="far fa-edit"></i>
-                </button>
-                <button type="button" class="btn btn-sm btn-danger">
-                    <i class="far fa-trash-alt"></i>
-                </button>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <input type="checkbox" />
-            </td>
-            <th scope="row">7</th>
-            <td>João</td>
-            <td>15996166336</td>
-            <td>
-                <button type="button" class="btn btn-sm btn-info">
-                    <i class="far fa-edit"></i>
-                </button>
-                <button type="button" class="btn btn-sm btn-danger">
-                    <i class="far fa-trash-alt"></i>
-                </button>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <input type="checkbox" />
-            </td>
-            <th scope="row">8</th>
-            <td>Pedro</td>
-            <td>15997121590</td>
-            <td>
-                <button type="button" class="btn btn-sm btn-info">
-                    <i class="far fa-edit"></i>
-                </button>
-                <button type="button" class="btn btn-sm btn-danger">
-                    <i class="far fa-trash-alt"></i>
-                </button>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <input type="checkbox" />
-            </td>
-            <th scope="row">9</th>
-            <td>Ana</td>
-            <td>15997553749</td>
-            <td>
-                <button type="button" class="btn btn-sm btn-info">
-                    <i class="far fa-edit"></i>
-                </button>
-                <button type="button" class="btn btn-sm btn-danger">
-                    <i class="far fa-trash-alt"></i>
-                </button>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <input type="checkbox" />
-            </td>
-            <th scope="row">10</th>
-            <td>Maria</td>
-            <td>15997520124</td>
-            <td>
-                <button type="button" class="btn btn-sm btn-info">
-                    <i class="far fa-edit"></i>
-                </button>
-                <button type="button" class="btn btn-sm btn-danger">
-                    <i class="far fa-trash-alt"></i>
-                </button>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <input type="checkbox" />
-            </td>
-            <th scope="row">11</th>
-            <td>João</td>
-            <td>15996166336</td>
-            <td>
-                <button type="button" class="btn btn-sm btn-info">
-                    <i class="far fa-edit"></i>
-                </button>
-                <button type="button" class="btn btn-sm btn-danger">
-                    <i class="far fa-trash-alt"></i>
-                </button>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <input type="checkbox" />
-            </td>
-            <th scope="row">12</th>
-            <td>Pedro</td>
-            <td>15997121590</td>
-            <td>
-                <button type="button" class="btn btn-sm btn-info">
-                    <i class="far fa-edit"></i>
-                </button>
-                <button type="button" class="btn btn-sm btn-danger">
-                    <i class="far fa-trash-alt"></i>
-                </button>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <input type="checkbox" />
-            </td>
-            <th scope="row">13</th>
-            <td>Ana</td>
-            <td>15997553749</td>
-            <td>
-                <button type="button" class="btn btn-sm btn-info">
-                    <i class="far fa-edit"></i>
-                </button>
-                <button type="button" class="btn btn-sm btn-danger">
-                    <i class="far fa-trash-alt"></i>
-                </button>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <input type="checkbox" />
-            </td>
-            <th scope="row">14</th>
-            <td>Maria</td>
-            <td>15997520124</td>
-            <td>
-                <button type="button" class="btn btn-sm btn-info">
-                    <i class="far fa-edit"></i>
-                </button>
-                <button type="button" class="btn btn-sm btn-danger">
-                    <i class="far fa-trash-alt"></i>
-                </button>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <input type="checkbox" />
-            </td>
-            <th scope="row">15</th>
-            <td>João</td>
-            <td>15996166336</td>
-            <td>
-                <button type="button" class="btn btn-sm btn-info">
-                    <i class="far fa-edit"></i>
-                </button>
-                <button type="button" class="btn btn-sm btn-danger">
-                    <i class="far fa-trash-alt"></i>
-                </button>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <input type="checkbox" />
-            </td>
-            <th scope="row">16</th>
-            <td>Pedro</td>
-            <td>15997121590</td>
-            <td>
-                <button type="button" class="btn btn-sm btn-info">
-                    <i class="far fa-edit"></i>
-                </button>
-                <button type="button" class="btn btn-sm btn-danger">
-                    <i class="far fa-trash-alt"></i>
-                </button>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <input type="checkbox" />
-            </td>
-            <th scope="row">17</th>
-            <td>Ana</td>
-            <td>15997553749</td>
-            <td>
-                <button type="button" class="btn btn-sm btn-info">
-                    <i class="far fa-edit"></i>
-                </button>
-                <button type="button" class="btn btn-sm btn-danger">
-                    <i class="far fa-trash-alt"></i>
-                </button>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <input type="checkbox" />
-            </td>
-            <th scope="row">18</th>
-            <td>Maria</td>
-            <td>15997520124</td>
-            <td>
-                <button type="button" class="btn btn-sm btn-info">
-                    <i class="far fa-edit"></i>
-                </button>
-                <button type="button" class="btn btn-sm btn-danger">
-                    <i class="far fa-trash-alt"></i>
-                </button>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <input type="checkbox" />
-            </td>
-            <th scope="row">19</th>
-            <td>João</td>
-            <td>15996166336</td>
-            <td>
-                <button type="button" class="btn btn-sm btn-info">
-                    <i class="far fa-edit"></i>
-                </button>
-                <button type="button" class="btn btn-sm btn-danger">
-                    <i class="far fa-trash-alt"></i>
-                </button>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <input type="checkbox" />
-            </td>
-            <th scope="row">20</th>
-            <td>Pedro</td>
-            <td>15997121590</td>
-            <td>
-                <button type="button" class="btn btn-sm btn-info">
-                    <i class="far fa-edit"></i>
-                </button>
-                <button type="button" class="btn btn-sm btn-danger">
-                    <i class="far fa-trash-alt"></i>
-                </button>
-            </td>
-        </tr>
+        <?php foreach($contatos as $contato) : ?>
+            <tr>
+                <!-- Checkbox para selecionar o contato -->
+                <td>
+                    <input type="checkbox" />
+                </td>
+                <th scope="row"><?php echo $contato["contato_id"] ?></th>
+                <td><?php echo $contato["desc_nome"] ?></td>
+                <td>15997553749</td>
+                <td>
+                    <button type="button" class="btn btn-sm btn-info" onclick="document.location.href = '<?php echo site_url("contatos/editar/".$contato["contato_id"]); ?>';" >
+                        <i class="far fa-edit"></i>
+                    </button>
+                    <button type="button" class="btn btn-sm btn-danger" onclick="document.location.href = '<?php echo site_url("contatos/excluir/".$contato["contato_id"]); ?>';" >
+                        <i class="far fa-trash-alt"></i>
+                    </button>
+                </td>
+            </tr>
+        <?php endforeach; ?>
     </tbody>
     <tfoot>
         <tr>

@@ -48,9 +48,9 @@
          * @since 07/2018
          */
         public function index(){
-            //$retorno = $this->Contatos_model->get();
+            $contatos = $this->__getAll();
             // carrega a view de listagem de contatos
-            $this->__loadView('lista');
+            $this->__loadView('lista', array('contatos' => $contatos));
         }
         /**
          * __setValidation
@@ -159,6 +159,16 @@
         }
 
         /**
+         * __getAll
+         * Busca todos os contatos no BD
+         * @author Thaís Oliveira
+         * @since 07/2018
+         */
+        private function __getAll(){
+            return $this->Contatos_model->get();
+        }
+
+        /**
          * excluir
          * Exclui um registro pelo id
          * @author Thaís
@@ -167,9 +177,15 @@
         public function excluir($id){
             // monta o where
             $where = array('contato_id' => $id);
-            $this->load->model('Contatos_model');
+            // apaga o contato e os telefones relacionados a ele
             $retorno = $this->Contatos_model->delete($where);
-            var_dump($retorno);
+            // retorna a view de listagem com a resposta da exclusão
+            $params = array(
+                'response' => $retorno,
+                'msg' => ( $retorno ? "Registro(s) excluído(s) com sucesso!" : "Falha ao excluir registro(s)!" ),
+                'contatos' => $this->__getAll()
+            );
+            $this->__loadView('lista', $params);
         }
 
     }

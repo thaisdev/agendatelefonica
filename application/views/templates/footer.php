@@ -7,7 +7,7 @@
 <script src="<?php echo base_url(); ?>assets/js/plugins/bootstrap.min.js"></script>
 
 <!-- Scripts and plugins for list views -->
-<?php if($view == 'list') : ?>
+<?php if($view == 'lista') : ?>
     <!-- Plugin datatables -->
     <script src="<?php echo base_url(); ?>assets/js/plugins/datatables.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/js/plugins/dataTables.bootstrap4.min.js"></script>
