@@ -34,17 +34,17 @@
          * @author Thaís Oliveira
          * @since 07/2018
          */
-        public function get($where = array()){
+        public function get($id = false){
             // monta o select com inner join
             $this->db->select('*');    
             $this->db->from($this->__table);
             $this->db->join('telefones', 'telefones.contato_id = contatos.contato_id');
             // faz a busca com where se necessário
-            if($where){
-                $query = $this->db->get_where($this->__table, $where);
-            } else {
-                $query = $this->db->get();
+            if($id){
+                $this->db->where('contatos.contato_id', $id);
             }
+            // faz a busca
+            $query = $this->db->get();
             // agrupa o resultado e retorna
             return $this->__groupResults($query->result_array());
         }
@@ -62,6 +62,7 @@
             foreach($rows as $row){
                 // adiciona os dados do registro no array de retorno, colocando o contato_id como chave
                 $dados[$row["contato_id"]]["nome"] = $row["desc_nome"];
+                $dados[$row["contato_id"]]["contato_id"] = $row["contato_id"];
                 $dados[$row["contato_id"]]["telefones"][$row["telefone_id"]]["numero"] = $row["desc_telefone"];
                 $dados[$row["contato_id"]]["telefones"][$row["telefone_id"]]["tipo"] = $row["flg_tipo"];
             }

@@ -20,7 +20,7 @@ checkValPhone();
  * @since 07/2018
  */
 function setMaskPhone(element, mask){
-    element.mask(mask);
+    $(element).mask(mask);
 }
 
 /**
